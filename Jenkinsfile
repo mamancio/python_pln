@@ -28,7 +28,7 @@ pipeline {
         
         stage('Execução do Chatbot') {
             steps {
-                sh 'python chat_bot.py'
+                sh 'python3 chat_bot.py'
             }
         }
     }
