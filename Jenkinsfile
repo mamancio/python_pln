@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Preparação do Ambiente') {
             steps {
-                echo 'ja instalado'
+                sh 'python3 -m pip install -r requisitos.txt'
             }
         }
 
         stage('Execução do Teste Levenshtein') {
             steps {
-                sh 'python levenshtein_teste.py'
+                sh 'python3 levenshtein_teste.py'
             }
         }
 
@@ -25,10 +25,10 @@ pipeline {
                 }
             }
         }
-        
+
         stage('Execução do Chatbot') {
             steps {
-                sh 'python chat_bot.py'
+                sh 'python3 chat_bot.py'
             }
         }
     }
