@@ -36,7 +36,7 @@ pipeline {
         
         stage('Execução do Chatbot') {
             steps {
-                bat 'python chat_bot.py'
+                bat 'python3 chat_bot.py'
             }
         }
     }
