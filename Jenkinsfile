@@ -4,14 +4,21 @@ pipeline {
     stages {
         stage('Preparação do Ambiente') {
             steps {
-                
                 echo 'ja instalado'
+            }
+        }
+
+        stage('Verificação do Ambiente') {
+            steps {
+                bat 'python --version'
+                bat 'pip list'
+                bat 'dir'
             }
         }
 
         stage('Execução do Teste Levenshtein') {
             steps {
-                start 'python3 levenshtein_teste.py'
+                bat 'python3 levenshtein_teste.py'
             }
         }
 
@@ -29,7 +36,7 @@ pipeline {
         
         stage('Execução do Chatbot') {
             steps {
-                start 'python chat_bot.py'
+                bat 'python chat_bot.py'
             }
         }
     }
