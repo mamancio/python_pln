@@ -29,7 +29,7 @@ pipeline {
         
         stage('Execução do Chatbot') {
             steps {
-                start 'python3 chat_bot.py'
+                start 'python chat_bot.py'
             }
         }
     }
