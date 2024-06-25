@@ -8,14 +8,6 @@ pipeline {
             }
         }
 
-        stage('Verificação do Ambiente') {
-            steps {
-                bat 'python --version'
-                bat 'pip list'
-                bat 'dir'
-            }
-        }
-
         stage('Execução do Teste Levenshtein') {
             steps {
                 bat 'python3 levenshtein_teste.py'
@@ -41,3 +33,4 @@ pipeline {
         }
     }
 }
+
