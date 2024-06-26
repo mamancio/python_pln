@@ -5,7 +5,7 @@ pipeline {
     
     }
     parameters {
-        string(name: 'DIRETORIO', description: 'Faça uma pergunta')
+        string(name: 'DIRETORIO', defaultValue: '', description: 'Faça uma pergunta')
     }
 
     stages {
@@ -35,6 +35,7 @@ pipeline {
         
         stage('Execução do Chatbot') {
             steps {
+                def pergunta = params.DIGITE_A_PERGUNTA
                 bat 'python chat_bot.py'
             }
         }

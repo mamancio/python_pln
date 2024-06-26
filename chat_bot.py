@@ -1,4 +1,5 @@
 import Levenshtein
+import sys
 
 def carregar_perguntas(arquivo):
   perguntas_respostas = {}
@@ -22,11 +23,13 @@ def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
       return "Pergunta não encontrada."
 
 if __name__ == "__main__":
-  perguntas_respostas = carregar_perguntas("perguntas.txt")
-  limiar_distancia = 10
-  while True:
-    pergunta = input("Faça uma pergunta:").lower()
-    if pergunta == "sair":
-      break
-    resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
-    print("Resposta:", resposta)
+    if len(sys.argv) != 2:
+        print("Uso: python3 chat_bot.py <pergunta>")
+        sys.exit(1)
+
+    pergunta = sys.argv[1]
+    perguntas_respostas = carregar_perguntas("perguntas.txt")
+    limiar_distancia = 10
+
+resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
+print("Resposta:", resposta)
