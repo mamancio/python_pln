@@ -24,10 +24,9 @@ def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
 if __name__ == "__main__":
   perguntas_respostas = carregar_perguntas("perguntas.txt")
   limiar_distancia = 10
-
- while True:
-  pergunta = input("Digite sua pergunta (ou 'sair' para encerrar): ")
-  if pergunta.lower() == 'sair':
-    break
-  resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
-  print("Resposta:", resposta)
+  while True:
+    pergunta = input("Faça uma pergunta:").lower()
+    if pergunta == "sair":
+      break
+    resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
+    print("Resposta:", resposta)
