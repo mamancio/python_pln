@@ -35,7 +35,6 @@ pipeline {
         
         stage('Execução do Chatbot') {
             steps {
-                echo 'Interaja com o chatbot no console.'
                 bat 'python chat_bot.py'
             }
         }
