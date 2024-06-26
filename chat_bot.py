@@ -6,8 +6,6 @@ def carregar_perguntas(arquivo):
     for linha in f:
       pergunta, resposta = linha.strip().split("|")
       perguntas_respostas[pergunta.lower()] = resposta
-
-
   return perguntas_respostas
 
 def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
@@ -26,8 +24,10 @@ def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
 if __name__ == "__main__":
   perguntas_respostas = carregar_perguntas("perguntas.txt")
   limiar_distancia = 10
- 
-  pergunta = "Quem é você"
 
+ while True:
+  pergunta = input("Digite sua pergunta (ou 'sair' para encerrar): ")
+  if pergunta.lower() == 'sair':
+    break
   resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
   print("Resposta:", resposta)
