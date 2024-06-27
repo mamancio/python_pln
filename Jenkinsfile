@@ -4,9 +4,9 @@ pipeline {
     environment { PATH = "C:\\Windows\\System32;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312\\Scripts;${env.PATH}"
     
     }
-     parameters {
-        string(name: 'DIGITE_A_PERGUNTA', defaultValue: '', description: 'Faça a pergunta')
-     }
+    parameters {
+        string(name: 'PERGUNTA', description: 'Pergunta a ser feita')
+    }
 
     stages {
         stage('Preparação do Ambiente') {
@@ -33,13 +33,13 @@ pipeline {
             }
         }
         
-        stage('Execução do Chatbot') {
+         stage('Execução do Chatbot') {
             steps {
-                script {
-                    def pergunta = params.DIGITE_A_PERGUNTA
-                    bat "python chat_bot.py '${pergunta}'"
+               script {
+                    def pergunta = params.PERGUNTA
+                    bat "python chat_bot.py \"${pergunta}\""
                 }
-            }   
+            }
         }
     }
 }
