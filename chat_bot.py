@@ -27,9 +27,11 @@ if __name__ == "__main__":
         print("Uso: python chat_bot.py <pergunta>")
         sys.exit(1)
 
-    pergunta = sys.argv[1]
+    
     perguntas_respostas = carregar_perguntas("perguntas.txt")
     limiar_distancia = 10
+
+    pergunta = sys.argv[1]
 
     resposta = encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia)
     print("Resposta:", resposta)
