@@ -1,12 +1,12 @@
 pipeline {
     agent any
 
-    environment { PATH = "C:\\Windows\\System32;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312\\Scripts;${env.PATH}"}
+    environment { PATH = "C:\\Windows\\System32;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312\\Scripts;${env.PATH}"
     
     }
      parameters {
         string(name: 'DIGITE_A_PERGUNTA', defaultValue: '', description: 'Faça a pergunta')
-    }
+     }
 
     stages {
         stage('Preparação do Ambiente') {
@@ -39,6 +39,7 @@ pipeline {
                     def pergunta = params.DIGITE_A_PERGUNTA
                     bat "python chat_bot.py '${pergunta}'"
                 }
-            }
+            }   
+        }
     }
 }
