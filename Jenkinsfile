@@ -1,19 +1,18 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "C:\\Windows\\System32;C:\\Users\\Marlon\\AppData\\Local\\Programs\\Python\\Python312;C:\\Users\\Marlon\\AppData\\Local\\Programs\\Python\\Python312\\Scripts;${env.PATH}"
+    environment { PATH = "C:\\Windows\\System32;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312;C:\\Users\\matheus.mancio\\AppData\\Local\\Programs\\Python\\Python312\\Scripts;${env.PATH}"
+    
     }
-
     parameters {
         string(name: 'PERGUNTA', description: 'Pergunta a ser feita')
     }
 
     stages {
-       stage('Preparação do Ambiente') {
-           steps {
-                bat 'pip install -r requisitos.txt'
-           }
+        stage('Preparação do Ambiente') {
+            steps {
+                echo 'ja instalado'
+            }
         }
 
         stage('Execução do Teste Levenshtein') {
