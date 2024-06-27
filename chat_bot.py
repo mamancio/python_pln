@@ -7,6 +7,8 @@ def carregar_perguntas(arquivo):
     for linha in f:
       pergunta, resposta = linha.strip().split("|")
       perguntas_respostas[pergunta.lower()] = resposta
+
+
   return perguntas_respostas
 
 def encontrar_resposta(pergunta, perguntas_respostas, limiar_distancia=5):
